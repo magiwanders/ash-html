@@ -8,6 +8,8 @@ In `index.html`:
 
 `<script src="https://ash.magiwanders.com/ash-html.js"></script>`
 
+#TODO Alternatively, npm package.
+
 ## Basic Usage
 
 ```javascript
