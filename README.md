@@ -6,7 +6,7 @@ This is an extremely simple set of utility functions in vanilla JavaScript to ma
 
 In `index.html`:
 
-`<script src="https://magiwanders.com/ash-html"></script>`
+`<script src="https://ash.magiwanders.com/ash-html.js"></script>`
 
 ## Basic Usage
 
