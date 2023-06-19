@@ -1,4 +1,5 @@
 let fName = '_Object'
+let cssName = '_css'
 
 window[fName] = (type='', attributes={}, children=['']) => {
   var element = document.createElement(type)
@@ -13,6 +14,12 @@ window[fName] = (type='', attributes={}, children=['']) => {
       else element.appendChild(child)
   })
   return element
+}
+
+window[cssName] = (selector = '', attributes = {}) => {
+  let textCSS = '\n' + selector + '{'
+  for (let attribute in attributes) textCSS += '\n' + attribute + ': ' + attributes[attribute] + ';'
+  return textCSS += '}'  
 }
 
 for(HTMLTag of [
