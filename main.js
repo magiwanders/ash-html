@@ -1,12 +1,11 @@
 let fName = '_Object'
-let cssName = '_css'
 
 window[fName] = (type='', attributes={}, children=['']) => {
   var element = document.createElement(type)
-  if (attributes.onclick === undefined && attributes.id != undefined) {
-      attributes.onclick = attributes.id + '();'
-      if (window[attributes.id]===undefined) window[attributes.id] = new Function('args', '')
-  }
+  // if (attributes.onclick === undefined && attributes.id != undefined) {
+  //     attributes.onclick = attributes.id + '();'
+  //     if (window[attributes.id]===undefined) window[attributes.id] = new Function('args', '')
+  // }
   for (key in attributes) element.setAttribute(key, attributes[key])
   if (typeof children === 'string' || children[0] === undefined) children = [children]
   children.forEach( child => { 
@@ -16,10 +15,10 @@ window[fName] = (type='', attributes={}, children=['']) => {
   return element
 }
 
-window[cssName] = (selector = '', attributes = {}) => {
-  let textCSS = '\n' + selector + '{'
+window['_css'] = (attributes = {}) => {
+  let textCSS = ''
   for (let attribute in attributes) textCSS += '\n' + attribute + ': ' + attributes[attribute] + ';'
-  return textCSS += '}'  
+  return textCSS 
 }
 
 for(HTMLTag of [

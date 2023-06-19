@@ -1,12 +1,18 @@
 let i = "_Object";
-window[i] = (a = "", e = {}, t = [""]) => {
+window[i] = (a = "", t = {}, e = [""]) => {
   var o = document.createElement(a);
-  e.onclick === void 0 && e.id != null && (e.onclick = e.id + "();", window[e.id] === void 0 && (window[e.id] = new Function("args", "")));
-  for (key in e)
-    o.setAttribute(key, e[key]);
-  return (typeof t == "string" || t[0] === void 0) && (t = [t]), t.forEach((d) => {
-    typeof d == "string" ? o.appendChild(document.createTextNode(d)) : o.appendChild(d);
+  for (key in t)
+    o.setAttribute(key, t[key]);
+  return (typeof e == "string" || e[0] === void 0) && (e = [e]), e.forEach((r) => {
+    typeof r == "string" ? o.appendChild(document.createTextNode(r)) : o.appendChild(r);
   }), o;
+};
+window._css = (a = {}) => {
+  let t = "";
+  for (let e in a)
+    t += `
+` + e + ": " + a[e] + ";";
+  return t;
 };
 for (HTMLTag of [
   "html",

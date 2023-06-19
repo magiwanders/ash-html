@@ -45,7 +45,7 @@ To add the HTML code:
 
 ```html
 <div id='simulation_controls' style='height:500px; width:100%; pointer-events:painted;'>
-  <button id="toggle_simulation">Pause</button> or 
+  <button id="toggle_simulation" style='background-color: green'>Pause</button> or 
   <button id="step">Step</button> the simulation.
   <br><br>
 </div>
@@ -61,26 +61,20 @@ We can use the JavaScript code :
 
 ```javascript
 document.getElementById('container').appendChild(
-  _div({id: 'simulation_controls', style: 'height:500px; width:100%; pointer-events:painted;'},
+  _div({
+    id: 'simulation_controls', 
+    style: _css({
+      height: '500px', 
+      width: '100%',
+      'pointer-events':'painted'
+    })},
     [
-        _button({id: 'toggle_simulation'}, 'Pause'), 'or',
+        _button({id: 'toggle_simulation', style: _css({'background-color': 'green'})}, 'Pause'), 'or',
         _button({id: 'step'}, 'Step'), ' the simulation.',
         _br(), _br()
     ]
   )
 )
-```
-
-Resulting in:
-
-```html
-<div id='container'>
-  <div id='simulation_controls' style='height:500px; width:100%; pointer-events:painted;'>
-    <button id="toggle_simulation">Pause</button> or 
-    <button id="step">Step</button> the simulation.
-    <br><br>
-  </div>
-</div>
 ```
 
 ## Contributions
