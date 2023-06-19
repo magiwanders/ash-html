@@ -1,3 +1,4 @@
+console.log('ash-html loaded correctly!')
 let fName = '_Object'
 
 window[fName] = (type='', attributes={}, children=['']) => {

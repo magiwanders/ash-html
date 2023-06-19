@@ -1,3 +1,4 @@
+console.log("ash-html loaded correctly!");
 let i = "_Object";
 window[i] = (a = "", t = {}, e = [""]) => {
   var o = document.createElement(a);
