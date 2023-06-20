@@ -1,8 +1,12 @@
+import { waitMs } from "./util/wait"
+
 console.log('ash-html loaded correctly!')
+
 let fName = '_Object'
 
 window[fName] = (type='', attributes={}, children=['']) => {
   var element = document.createElement(type)
+  // Functionality to add onclick function with the same name as the id
   // if (attributes.onclick === undefined && attributes.id != undefined) {
   //     attributes.onclick = attributes.id + '();'
   //     if (window[attributes.id]===undefined) window[attributes.id] = new Function('args', '')
@@ -22,7 +26,7 @@ window['_css'] = (attributes = {}) => {
   return textCSS 
 }
 
-for(HTMLTag of [
+for(let HTMLTag of [
   'html', 'head', 'body', 'title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
   'p', 'b', 'i', 'em', 'mark', 'small', 'strong', 'sub', 'sup', 'br', 'wbr',
   'abbr','address', 'bdi', 'bdo', 'pre', 'u', 'blockquote', 'cite', 'code', 'q', 'rt', 'samp',
@@ -34,3 +38,9 @@ for(HTMLTag of [
   'style', 'div', 'span', 'header', 'footer', 'main', 'section', 'article', 'aside', 'details', 'dialog', 'summary', 'data',
   'meta', 'base', 'script', 'noscript', 'embed', 'object', 'param'
 ]) window['_'+HTMLTag] = new Function('attributes', 'children', 'return '+fName+'("'+HTMLTag+'", attributes, children)')
+
+export let ash = {
+  wait: {
+    ms: waitMs
+  }
+};

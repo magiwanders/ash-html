@@ -1,21 +1,24 @@
+function n(e) {
+  return new Promise((o) => setTimeout(o, e));
+}
 console.log("ash-html loaded correctly!");
 let i = "_Object";
-window[i] = (a = "", t = {}, e = [""]) => {
-  var o = document.createElement(a);
-  for (key in t)
-    o.setAttribute(key, t[key]);
-  return (typeof e == "string" || e[0] === void 0) && (e = [e]), e.forEach((r) => {
-    typeof r == "string" ? o.appendChild(document.createTextNode(r)) : o.appendChild(r);
-  }), o;
+window[i] = (e = "", o = {}, t = [""]) => {
+  var a = document.createElement(e);
+  for (key in o)
+    a.setAttribute(key, o[key]);
+  return (typeof t == "string" || t[0] === void 0) && (t = [t]), t.forEach((r) => {
+    typeof r == "string" ? a.appendChild(document.createTextNode(r)) : a.appendChild(r);
+  }), a;
 };
-window._css = (a = {}) => {
-  let t = "";
-  for (let e in a)
-    t += `
-` + e + ": " + a[e] + ";";
-  return t;
+window._css = (e = {}) => {
+  let o = "";
+  for (let t in e)
+    o += `
+` + t + ": " + e[t] + ";";
+  return o;
 };
-for (HTMLTag of [
+for (let e of [
   "html",
   "head",
   "body",
@@ -125,4 +128,13 @@ for (HTMLTag of [
   "object",
   "param"
 ])
-  window["_" + HTMLTag] = new Function("attributes", "children", "return " + i + '("' + HTMLTag + '", attributes, children)');
+  window["_" + e] = new Function("attributes", "children", "return " + i + '("' + e + '", attributes, children)');
+let d = {
+  wait: {
+    ms: n
+  }
+};
+export {
+  d as ash,
+  n as waitMs
+};
