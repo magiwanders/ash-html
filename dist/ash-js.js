@@ -135,6 +135,5 @@ let d = {
   }
 };
 export {
-  d as ash,
-  n as waitMs
+  d as ash
 };
