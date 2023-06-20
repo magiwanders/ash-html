@@ -11,10 +11,6 @@
   "devDependencies": {
     "vite": "^4.3.9"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/magiwanders/ash-js.git"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/magiwanders/ash-js"
   }
