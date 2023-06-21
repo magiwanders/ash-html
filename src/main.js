@@ -1,6 +1,7 @@
-import { waitMs } from "./util/wait"
+import { ms } from "./util/misc"
+import { DynamicWorker } from "./util/dynamic-worker"
 
-console.log('ash-html loaded correctly!')
+console.log('ash-js loaded correctly!')
 
 let fName = '_Object'
 
@@ -39,8 +40,10 @@ for(let HTMLTag of [
   'meta', 'base', 'script', 'noscript', 'embed', 'object', 'param'
 ]) window['_'+HTMLTag] = new Function('attributes', 'children', 'return '+fName+'("'+HTMLTag+'", attributes, children)')
 
-export let ash = {
+let ash = {
   wait: {
-    ms: waitMs
+    ms: ms
   }
 };
+
+export {ash, DynamicWorker}
