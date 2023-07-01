@@ -13,7 +13,7 @@ window[fName] = (type='', attributes={}, children=['']) => {
   //     attributes.onclick = attributes.id + '();'
   //     if (window[attributes.id]===undefined) window[attributes.id] = new Function('args', '')
   // }
-  for (key in attributes) element.setAttribute(key, attributes[key])
+  for (let key in attributes) element.setAttribute(key, attributes[key])
   if (typeof children === 'string' || children[0] === undefined) children = [children]
   children.forEach( child => { 
       if (typeof child === 'string') element.appendChild(document.createTextNode(child))

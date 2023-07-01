@@ -4,12 +4,12 @@ function n(e) {
 console.log("ash-js loaded correctly!");
 let i = "_Object";
 window[i] = (e = "", o = {}, t = [""]) => {
-  var a = document.createElement(e);
-  for (key in o)
-    a.setAttribute(key, o[key]);
-  return (typeof t == "string" || t[0] === void 0) && (t = [t]), t.forEach((r) => {
-    typeof r == "string" ? a.appendChild(document.createTextNode(r)) : a.appendChild(r);
-  }), a;
+  var r = document.createElement(e);
+  for (let a in o)
+    r.setAttribute(a, o[a]);
+  return (typeof t == "string" || t[0] === void 0) && (t = [t]), t.forEach((a) => {
+    typeof a == "string" ? r.appendChild(document.createTextNode(a)) : r.appendChild(a);
+  }), r;
 };
 window._css = (e = {}) => {
   let o = "";
