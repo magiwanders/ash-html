@@ -1,82 +1,24 @@
-function d(a) {
-  return new Promise((e) => setTimeout(e, a));
-}
-function i(a) {
-  return window.URL.createObjectURL(
-    new Blob(
-      [a],
-      { type: "text/javascript" }
-    )
-  );
-}
-function l(a) {
-  let e = "";
-  const t = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  for (let s = 0; s < a; s++)
-    e += t.charAt(Math.floor(Math.random() * t.length));
-  return e;
-}
-const u = `onmessage = (msg) => postMessage({result: self[msg.data.do](msg.data), ack: msg.data.id})
-addFn = (args) => importScripts(args.script)
-removeFn = (args) => self[args.name] = () => {}`;
-class p {
-  constructor() {
-    this._worker = new Worker(i(u)), this._worker.onmessage = (e) => {
-      console.log("RECEIVING <-", e.data), this._ack[e.data.ack] = {
-        received: 1,
-        result: e.data.result
-      };
-    }, this._ack = {};
-  }
-  async _postMessage(e) {
-    return new Promise(async (t, s) => {
-      let r = l(16);
-      for (this._ack[r] = {
-        received: 0,
-        result: void 0
-      }, e.id = r, console.log("SENDING -> ", e), this._worker.postMessage(e); this._ack[r].received == 0; )
-        await d(1);
-      let o = this._ack[r].result;
-      delete this._ack[r], t(o);
-    });
-  }
-  async addFn(e) {
-    return new Promise(async (t, s) => {
-      await this._postMessage({ do: "addFn", script: i(e.toString()) }), this[e.name] = async (r) => {
-        let o = { do: e.name };
-        for (let n in r)
-          o[n] = r[n];
-        return await this._postMessage(o);
-      }, t(1);
-    });
-  }
-  async addCode(e) {
-    return new Promise(async (t, s) => {
-      await this._postMessage({ do: "addFn", script: i(e) }), t();
-    });
-  }
-  async removeFn(e) {
-    delete this[e];
-  }
+function s(e) {
+  return new Promise((o) => setTimeout(o, e));
 }
 console.log("ash-js loaded correctly!");
-let c = "_Object";
-window[c] = (a = "", e = {}, t = [""]) => {
-  var s = document.createElement(a);
-  for (key in e)
-    s.setAttribute(key, e[key]);
+let i = "_Object";
+window[i] = (e = "", o = {}, t = [""]) => {
+  var a = document.createElement(e);
+  for (key in o)
+    a.setAttribute(key, o[key]);
   return (typeof t == "string" || t[0] === void 0) && (t = [t]), t.forEach((r) => {
-    typeof r == "string" ? s.appendChild(document.createTextNode(r)) : s.appendChild(r);
-  }), s;
+    typeof r == "string" ? a.appendChild(document.createTextNode(r)) : a.appendChild(r);
+  }), a;
 };
-window._css = (a = {}) => {
-  let e = "";
-  for (let t in a)
-    e += `
-` + t + ": " + a[t] + ";";
-  return e;
+window._css = (e = {}) => {
+  let o = "";
+  for (let t in e)
+    o += `
+` + t + ": " + e[t] + ";";
+  return o;
 };
-for (let a of [
+for (let e of [
   "html",
   "head",
   "body",
@@ -186,13 +128,13 @@ for (let a of [
   "object",
   "param"
 ])
-  window["_" + a] = new Function("attributes", "children", "return " + c + '("' + a + '", attributes, children)');
-let m = {
+  window["_" + e] = new Function("attributes", "children", "return " + i + '("' + e + '", attributes, children)');
+let n = {
   wait: {
-    ms: d
-  }
+    ms: s
+  },
+  AshSim
 };
 export {
-  p as DynamicWorker,
-  m as ash
+  n as ash
 };

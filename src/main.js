@@ -1,5 +1,6 @@
 import { ms } from "./util/misc"
-import { DynamicWorker } from "./util/dynamic-worker"
+import { DynamicWorkerWithoutAck } from "./util/dynamic-worker-classes"
+import { AshSim } from "./ash-sim"
 
 console.log('ash-js loaded correctly!')
 
@@ -43,7 +44,8 @@ for(let HTMLTag of [
 let ash = {
   wait: {
     ms: ms
-  }
+  },
+  AshSim: AshSim
 };
 
-export {ash, DynamicWorker}
+export {ash, DynamicWorkerWithoutAck}
