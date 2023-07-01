@@ -1,6 +1,6 @@
 import { ms } from "./util/misc"
-import { DynamicWorkerWithoutAck } from "./util/dynamic-worker-classes"
-import { AshSim } from "./ash-sim"
+// import { DynamicWorkerWithoutAck } from "./util/dynamic-worker-classes"
+// import { AshSim } from "./ash-sim"
 
 console.log('ash-js loaded correctly!')
 
@@ -45,7 +45,7 @@ let ash = {
   wait: {
     ms: ms
   },
-  AshSim: AshSim
+  // AshSim: AshSim
 };
 
-export {ash, DynamicWorkerWithoutAck}
+export {ash}

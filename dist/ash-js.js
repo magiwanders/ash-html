@@ -1,4 +1,4 @@
-function s(e) {
+function n(e) {
   return new Promise((o) => setTimeout(o, e));
 }
 console.log("ash-js loaded correctly!");
@@ -129,12 +129,12 @@ for (let e of [
   "param"
 ])
   window["_" + e] = new Function("attributes", "children", "return " + i + '("' + e + '", attributes, children)');
-let n = {
+let s = {
   wait: {
-    ms: s
-  },
-  AshSim
+    ms: n
+  }
+  // AshSim: AshSim
 };
 export {
-  n as ash
+  s as ash
 };

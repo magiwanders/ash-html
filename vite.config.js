@@ -8,5 +8,13 @@ export default defineConfig({
       name: 'ash-js',
       fileName: 'ash-js',
     },
+    manifest: false,
+    rollupOptions: {
+      external: [
+        'src/util/dynamic-worker-classes.js',
+        'src/util/ash-sim-worker.js',
+        'src/ash-sim.js',
+      ],
+    },
   },
 })
