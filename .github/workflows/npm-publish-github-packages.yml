@@ -32,6 +32,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@magiwanders'
       - run: npm ci
-      - run: npm publish --access public
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
