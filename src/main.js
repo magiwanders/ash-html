@@ -1,6 +1,4 @@
 import { ms } from "./util/misc"
-// import { DynamicWorkerWithoutAck } from "./util/dynamic-worker-classes"
-// import { AshSim } from "./ash-sim"
 
 console.log('ash-js loaded correctly!')
 
